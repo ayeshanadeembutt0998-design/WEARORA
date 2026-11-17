@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploaded product images
+server/uploads/products/*
+!server/uploads/products/.gitkeep
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
