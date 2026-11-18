@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import { env } from './config/env.js';
 import routes from './routes/index.js';
 import { errorHandler, notFound } from './middleware/error.js';
-import { UPLOAD_ROOT } from './middleware/upload.js';
+
 
 export function createApp() {
   const app = express();
@@ -16,7 +16,6 @@ export function createApp() {
   if (!env.isTest) app.use(morgan(env.isProd ? 'combined' : 'dev'));
   app.use(express.json({ limit: '1mb' }));
   app.use(cookieParser());
-  app.use('/uploads', express.static(UPLOAD_ROOT, { maxAge: '7d' }));
   app.use('/api', routes);
   app.use(notFound);
   app.use(errorHandler);
